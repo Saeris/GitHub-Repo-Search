@@ -23,7 +23,7 @@ const mapDispatchToProps = dispatch => ({
   nextPage: page => dispatch(nextPage(page))
 })
 
-const Element = ({ query, language, page, next, previous }) => (
+const Element = ({ query, language, page, nextPage, previousPage }) => (
   <Query
     query={searchRepos(page())}
     variables={{
