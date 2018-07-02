@@ -1,7 +1,6 @@
 import { Form } from "formik"
 import Octocat from "react-icons/lib/go/mark-github"
 import styled, { css } from "react-emotion"
-import { Link as UnstyledLink } from "../../components/core"
 
 export const SearchBar = styled(Form)`
   display: flex;
@@ -17,14 +16,6 @@ export const HomeIcon = styled(Octocat)`
   justify-content: center;
   height: 36px;
   margin-right: 14px;
-`
-
-export const Link = styled(UnstyledLink)`
-  color: inherit;
-
-  &:hover {
-    color: inherit;
-  }
 `
 
 export const Results = styled(`section`)`

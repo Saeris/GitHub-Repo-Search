@@ -19,8 +19,8 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  previous: page => dispatch(previousPage(page)),
-  next: page => dispatch(nextPage(page))
+  previousPage: page => dispatch(previousPage(page)),
+  nextPage: page => dispatch(nextPage(page))
 })
 
 const Element = ({ query, language, page, next, previous }) => (
@@ -29,9 +29,8 @@ const Element = ({ query, language, page, next, previous }) => (
     variables={{
       query: `${query()}${language()}` || `language:`
     }}
-    fetchPolicy="cache-and-network"
   >
-    {({ loading, error, data }) => {
+    {({ loading, error, data, fetchMore }) => {
       if (loading) return <Loading />
       if (error) return <OnError errMsg={error} />
       const { search: { nav, count, repos } } = data
@@ -109,7 +108,7 @@ const Element = ({ query, language, page, next, previous }) => (
                   disabled={!nav.prev}
                   onClick={e => {
                     e.preventDefault()
-                    previous(nav.start)
+                    previousPage(nav.start)
                   }}
                   isColor="info"
                   isOutlined
@@ -122,7 +121,7 @@ const Element = ({ query, language, page, next, previous }) => (
                   disabled={!nav.next}
                   onClick={e => {
                     e.preventDefault()
-                    next(nav.end)
+                    nextPage(nav.end)
                   }}
                   isColor="info"
                   isOutlined

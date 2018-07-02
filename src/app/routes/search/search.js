@@ -13,11 +13,13 @@ import { GoCode, GoX } from "react-icons/lib/go"
 import { connect } from "react-redux"
 import { search, resetSearch } from "./actions"
 import { Layout } from "../../components/structural"
-import { SearchBar, HomeIcon, Link } from "./elements"
+import { SearchBar, HomeIcon } from "./elements"
 import { SearchResults } from "./searchResults"
 import { programmingLanguages } from "./languages"
 
-const mapStateToProps = (state, ownProps) => ({ ...ownProps })
+const mapStateToProps = (state, ownProps) => ({
+  ...ownProps
+})
 
 const mapDispatchToProps = dispatch => ({
   search: (query, language) =>
@@ -49,9 +51,7 @@ const Element = ({ search, resetSearch }) => (
         isSubmitting
       }) => (
         <SearchBar id="intervalControls">
-          <Link href="/">
-            <HomeIcon size={32} />
-          </Link>
+          <HomeIcon size={32} />
           <FieldBody>
             <InputField isHorizontal hasAddons="centered">
               <Control hasIcons="left">

@@ -11,8 +11,14 @@ export const search = (query, language) => ({
   language
 })
 
-export const previousPage = page => ({ type: actions.PREVIOUS_PAGE, page })
+export const previousPage = page => ({
+  type: actions.PREVIOUS_PAGE,
+  page
+})
 
-export const nextPage = page => ({ type: actions.NEXT_PAGE, page })
+export const nextPage = page => ({
+  type: actions.NEXT_PAGE,
+  page
+})
 
 export const resetSearch = () => ({ type: actions.RESET_SEARCH })
