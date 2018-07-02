@@ -29,6 +29,7 @@ const Element = ({ query, language, page, nextPage, previousPage }) => (
     variables={{
       query: `${query()}${language()}` || `language:`
     }}
+    fetchPolicy="cache-and-network"
   >
     {({ loading, error, data, fetchMore }) => {
       if (loading) return <Loading />
